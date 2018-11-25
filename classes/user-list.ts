@@ -23,7 +23,9 @@ export class UserList {
     }
     
     public getList(){
-        return this.list;
+        return this.list.filter ( user => {
+            return user.name!=='';
+        });
     }
     
     public getUser(id:string){

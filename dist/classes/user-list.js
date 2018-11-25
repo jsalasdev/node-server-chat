@@ -21,7 +21,9 @@ var UserList = /** @class */ (function () {
         console.log(this.list);
     };
     UserList.prototype.getList = function () {
-        return this.list;
+        return this.list.filter(function (user) {
+            return user.name !== '';
+        });
     };
     UserList.prototype.getUser = function (id) {
         return this.list.find(function (user) { return user.id === id; });

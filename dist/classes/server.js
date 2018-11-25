@@ -28,12 +28,13 @@ var Server = /** @class */ (function () {
         console.log('Escuchando conexiones - sockets');
         this.io.on('connection', function (client) {
             //Configuring user
-            socket.connectClient(client);
-            socket.login(client);
+            socket.connectClient(client, _this.io);
+            socket.login(client, _this.io);
+            socket.getUsers(client, _this.io);
             //Listening messages
             socket.message(client, _this.io);
             //Disconnect
-            socket.disconnect(client);
+            socket.disconnect(client, _this.io);
         });
     };
     Object.defineProperty(Server, "instance", {
